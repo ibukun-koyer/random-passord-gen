@@ -1,0 +1,42 @@
+<%-include("head");%>
+    <section class="container">
+        <section class="post">
+            <span class="username">
+
+                <%=set.username;%>
+            </span>
+            <div>
+                <%=set.title;%>
+                    <hr>
+            </div>
+
+            <%if (set.image !==undefined){%>
+                <img src=<%=set.image;%> alt=<%=set.username;%> class="image">
+
+                    <%}%>
+                        <%for (let com of set.comment){%>
+                            <hr>
+                            <div class="indi_comment">
+                                <div class="username">
+                                    <%=com.username%>
+                                </div>
+                                <div>
+                                    <%=com.title%>
+                                </div>
+                            </div>
+                            <%}%>
+
+                                <form action="/post/comment/<%=set.id%>/new_comment?_method=PATCH" method="POST">
+                                    <div class="margin">
+                                        <input type="text" name="username" placeholder="Please enter your username"
+                                            required>
+                                    </div>
+                                    <div class="newComment">
+                                        <textarea name="newComment" placeholder="Enter a new comment"
+                                            required></textarea>
+                                    </div>
+                                    <button>comment</button>
+                                </form>
+        </section>
+    </section>
+    <%-include("footer");%>
