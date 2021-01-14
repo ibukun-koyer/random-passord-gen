@@ -1,0 +1,21 @@
+<%-include("head")%>
+    <div class="container">
+        <div class="form">
+            <form method="POST" action="/createPost/create" class="centered">
+                <div class="margin">
+                    <label for="username">Username: </label>
+                    <input type="text" id="username" placeholder="Enter your username" name="username" required>
+                </div>
+                <div class="margin">
+                    <label for="url">image url: </label>
+                    <input type="text" id="url" placeholder="enter url" name="url" required>
+                </div>
+                <div class="margin">
+                    <label for="title">title: </label>
+                    <input type="text" id="title" placeholder="Enter your caption" name="title" required>
+                </div>
+                <button>submit</button>
+            </form>
+        </div>
+    </div>
+    <%-include("footer")%>
