@@ -1,0 +1,53 @@
+<%-include("head")%>
+    <section class="container">
+        <%for (let set of post){%>
+            <section class="post">
+                <form action="/post/delete?_method=DELETE" method="post">
+                    <button name="id" value=<%=set.id%>>delete post</button>
+                </form>
+                <span class="username">
+
+                    <%=set.username;%>
+                </span>
+                <div>
+                    <%=set.title;%>
+                        <hr>
+                </div>
+
+                <%if (set.image !==undefined){%>
+                    <img src=<%=set.image;%> alt=<%=set.username;%> class="image">
+
+                        <%}%>
+
+                            <div>
+                                <hr>
+                            </div>
+
+                            <div class="actors">
+                                <form method="POST" action="/post/like?_method=PATCH" class="button">
+                                    <button name="id" value=<%=set.id%>>like <%=set.likes%></button>
+                                </form>
+                                <form method="GET" action="/post/comment/<%=set.id%>" class="button">
+                                    <button>Comment</button>
+                                </form>
+                            </div>
+
+
+            </section>
+
+            <%}%>
+                <% if (post.length===0){%>
+                    <div class="outer">
+
+                    </div>
+                    <%}%>
+
+
+    </section>
+    <div class="container">
+        <form method="GET" action="createPost">
+            <button name="create" value="0">Create a new post</button>
+        </form>
+    </div>
+
+    <%-include("footer")%>
